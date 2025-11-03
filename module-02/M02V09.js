@@ -18,6 +18,33 @@ const posts = [
   { id: 5, userId: 102, title: "Node.js streams" },
 ];
 
+//* Create a Hastable of posts
+
+const postsByUserId = posts.reduce((table, post) => {
+  const { userId } = post;
+
+  if(!table[userId]) {
+    table[userId] = [];
+  }
+
+  table[userId].push(post);
+
+  return table;
+}, {})
+
+console.log(postsByUserId);
+
+
+const usersPosts = users.map((user) => {
+
+  return {
+    ...user,
+    posts : postsByUserId[user.id]
+  }
+})
+
+
+console.log(JSON.stringify(usersPosts))
 //? output
 // [
 //   { id: 101, name: 'Alice', posts: [ { id: 2, ... }, { id: 3, ... } ] },

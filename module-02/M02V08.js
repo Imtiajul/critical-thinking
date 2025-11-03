@@ -12,6 +12,26 @@ const sales = [
   { category: "Electronics", item: "Keyboard", price: 80, quantity: 1 },
 ];
 
+
+const salesRevenueCategory = sales.reduce((sale, item)=> {
+  const {category, price, quantity} = item;
+
+  if(!sale[category]) {
+    sale[category] = {
+      totalRevenue : 0,
+      itemCount : 0,
+    }
+  }
+
+  sale[category].totalRevenue += price * quantity;
+  sale[category].itemCount +=  quantity;
+
+  return sale;
+}, {})
+
+console.log(salesRevenueCategory);
+
+
 //? Output
 // {
 //   Electronics: {

@@ -8,6 +8,31 @@ const postsArray = [
   { id: "p-104", title: "CSS Grid Tricks", author: "Alex" },
 ];
 
+const lookupObj = postsArray.reduce((table, item) => {
+  table[item.id] = item;
+
+  return table;
+}, {})
+
+console.log(lookupObj);
+
+
+for(let item in lookupObj) {
+  console.log(lookupObj[item]);
+}
+
+// const lookupObj = postsArray.reduce((table, post) => {
+//   table[post.id] = post;
+
+//   return table;
+// }, {})
+
+// console.log(lookupObj['p-103']);
+
+// for(let post in lookupObj) {
+//   console.log(lookupObj[post]);
+// }
+
 //? Output
 // {
 //   "p-101": { "id": "p-101", "title": "Intro to SQL", "author": "Alex" },

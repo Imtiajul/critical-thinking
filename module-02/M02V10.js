@@ -13,6 +13,31 @@ const events = [
   { timestamp: "2025-10-22T11:02:00Z", type: "click" },
 ];
 
+const INTERVAL = 30 * 60 * 1000;
+
+const getBinningTimeStamp = (timeStamp) => {
+  const date = new Date(timeStamp);
+  const flooredDate = Math.floor(date / INTERVAL) * INTERVAL;
+  return new Date(flooredDate).toISOString();
+}
+
+
+const binnedEvents = events.reduce((table, event) => {
+  const date = getBinningTimeStamp(event.timestamp);
+
+  if(!table[date]) {
+    table[date] = {
+      total: 0
+    }
+  }
+  table[date].total += 1;
+
+  return table;
+}, {})
+
+console.log(binnedEvents);
+
+
 //? Output
 // binnedEvents = {
 //   "2025-10-22T10:00:00.000Z": { "total": 3 },

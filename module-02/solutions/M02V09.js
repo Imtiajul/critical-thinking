@@ -33,6 +33,8 @@ const postByUserId = posts.reduce((table, post) => {
   return table;
 }, {});
 
+console.log(postByUserId);
+
 // O(n)
 const userWithPosts = users.map((user) => {
   return {

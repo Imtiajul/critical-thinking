@@ -16,9 +16,9 @@
 
 // Array.from()
 
-// const arr = Array.from([1, 2, 3], (value, i) => value * value);
+const arr = Array.from([1, 2, 3], (value, i) => value * value);
 
-// console.log(arr);
+console.log(arr);
 
 const range = (start, stop, step) =>
   Array.from(

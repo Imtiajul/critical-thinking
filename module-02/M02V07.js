@@ -20,5 +20,18 @@ const surveyResponses = [
   "A",
 ];
 
+const surveyCount = surveyResponses.reduce((table, item) => {
+  if(!table[item]) {
+    table[item] = 0;
+  }
+
+  table[item] += 1;
+
+  return table;
+}, {})
+
+console.log(surveyCount);
+
+
 //? Output
 // { A: 5, C: 3, B: 5, D: 1 }

@@ -115,3 +115,11 @@ const topElectronicProducts = rawApiData
   });
 
 console.log(topElectronicProducts);
+
+// const topElectProducts = rawApiData
+//   .filter((item) => item.category === 'Electronics')
+//   .sort((a, b) => b.rating - a.rating)
+//   .slice(0, 3)
+//   .map((item) => {
+//     return {name:item.productName};
+//   })
